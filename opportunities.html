@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الفرص التطوعية</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      color: #1e90ff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .opportunity {
+      background-color: #111;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px #1e90ff88;
+    }
+    .opportunity h2 {
+      margin: 0 0 10px 0;
+      color: #1e90ff;
+    }
+    .opportunity p {
+      margin: 0 0 15px 0;
+    }
+    button {
+      background-color: #1e90ff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 15px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0d6efd;
+    }
+    #welcomeMsg {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #ccc;
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .opportunity {
+        padding: 12px 15px;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="welcomeMsg"></div>
+
+  <div class="opportunity">
+    <h2>تنظيم معرض طموح</h2>
+    <p>فرصة تطوعية لتنظيم معرض داخل الجامعة.</p>
+    <button onclick="joinOpportunity('تنظيم معرض طموح')">انضم للفرصة</button>
+  </div>
+
+  <script>
+    // عرض رسالة ترحيب بالطالب
+    const name = localStorage.getItem('volunteerName') || 'طالب';
+    document.getElementById('welcomeMsg').textContent = `مرحباً ${name}، اختر فرصة تطوعية للانضمام`;
+
+    // تتبع عدد المشاركات والنقاط
+    let joinedCount = JSON.parse(localStorage.getItem('joinedCount')) || 0;
+    let points = JSON.parse(localStorage.getItem('points')) || 0;
+
+    function joinOpportunity(opportunityName) {
+      joinedCount++;
+      points += 10; // مثلا كل فرصة = 10 نقاط
+
+      localStorage.setItem('joinedCount', joinedCount);
+      localStorage.setItem('points', points);
+
+      alert(`شكراً لانضمامك إلى فرصة "${opportunityName}"!\nعدد مشاركاتك: ${joinedCount}\nالنقاط: ${points}`);
+    }
+  </script>
+</body>
+</html>

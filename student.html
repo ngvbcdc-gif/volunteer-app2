@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>ملف الطالب</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .box {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 10px #000;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+
+    a:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>ملف الطالب</h2>
+
+    <p><strong>الاسم:</strong> <span id="studentName"></span></p>
+    <p><strong>الرقم الجامعي:</strong> <span id="uniNumber"></span></p>
+    <p><strong>عدد المشاركات التطوعية:</strong> <span id="participationCount"></span></p>
+    <p><strong>النقاط المكتسبة:</strong> <span id="points"></span></p>
+
+    <a href="opportunities.html">العودة إلى الفرص التطوعية</a>
+  </div>
+
+  <script>
+    // جلب البيانات من التخزين المحلي
+    const name = localStorage.getItem("volunteerName") || "غير معروف";
+    const uni = localStorage.getItem("volunteerUniNumber") || "غير معروف";
+    const count = localStorage.getItem("participationCount") || 0;
+    const points = localStorage.getItem("volunteerPoints") || 0;
+
+    // عرض البيانات
+    document.getElementById("studentName").textContent = name;
+    document.getElementById("uniNumber").textContent = uni;
+    document.getElementById("participationCount").textContent = count;
+    document.getElementById("points").textContent = points;
+  </script>
+
+</body>
+</html>
